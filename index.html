@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sales OPS Agent — Formação para Vendedores que Já Usam IA | JOYN Group</title>
-  <meta name="description" content="Formação presencial para vendedores AI-savvy. Configura um agente que opera o teu Gmail, Pipedrive, Calendar e WhatsApp. 15 Julho, 18h-20h. Grupo JOYN.">
+  <meta name="description" content="Formação presencial para vendedores AI-savvy. Configura um agente que opera o teu Gmail, CRM, Calendar e WhatsApp. 15 Julho, 18h-20h. Grupo JOYN.">
 
   <!-- OG Tags for social sharing -->
   <meta property="og:title" content="Sales OPS Agent — O Agente que Opera o Teu Pipeline Por Ti">
-  <meta property="og:description" content="Formação presencial para vendedores que já usam IA. Configura um agente que gere Gmail, Pipedrive, Calendar e WhatsApp. 15 Julho, 18h-20h. JOYN Group.">
+  <meta property="og:description" content="Formação presencial para vendedores que já usam IA. Configura um agente que gere Gmail, CRM, Calendar e WhatsApp. 15 Julho, 18h-20h. JOYN Group.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://joaojosedacostafernandes.github.io/sales-ops-workshop/">
 
@@ -106,8 +106,11 @@
 
     .hero-date-badge { display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px; background: var(--accent-dim); border: 1px solid rgba(40, 116, 252, 0.2); border-radius: 100px; font-size: 14px; font-weight: 700; color: var(--accent-bright); margin-bottom: 32px; width: fit-content; animation: fadeUp 0.8s ease both; }
 
-    .hero h1 { font-family: var(--font-display); font-size: clamp(38px, 6vw, 76px); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; max-width: 860px; animation: fadeUp 0.8s ease 0.1s both; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(38px, 6vw, 76px); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; max-width: 900px; animation: fadeUp 0.8s ease 0.1s both; }
     .hero h1 em { font-style: italic; color: var(--accent-bright); }
+
+    .hero-rotate-wrapper { display: block; min-height: 1.2em; }
+    .hero-rotate-line { display: inline; color: var(--accent-bright); font-style: italic; transition: opacity 0.5s ease; }
 
     .hero-sub { font-size: clamp(17px, 2.2vw, 20px); color: var(--text-secondary); max-width: 660px; margin-top: 28px; line-height: 1.7; animation: fadeUp 0.8s ease 0.2s both; }
     .hero-sub strong { color: var(--text-primary); font-weight: 700; }
@@ -159,8 +162,15 @@
     .cap-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
     .cap-card.full-width { grid-column: 1 / -1; }
 
-    /* ── TERMINAL DEMO ── */
+    /* ── DEMO TABS ── */
     .demo { padding: var(--section-gap) 0; }
+    .demo-tabs { display: flex; gap: 8px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+    .demo-tab { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; color: var(--text-muted); font-family: var(--font-body); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    .demo-tab:hover { border-color: var(--border-hover); color: var(--text-secondary); }
+    .demo-tab.active { background: var(--accent-dim); border-color: rgba(40, 116, 252, 0.3); color: var(--accent-bright); }
+    .demo-tab-icon { display: flex; align-items: center; }
+
+    /* ── TERMINAL ── */
     .terminal { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; max-width: 860px; margin: 48px auto 0; box-shadow: 0 4px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--border); }
     .terminal-bar { display: flex; align-items: center; gap: 8px; padding: 14px 20px; background: var(--bg-accent); border-bottom: 1px solid var(--border); }
     .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
@@ -168,7 +178,7 @@
     .terminal-dot:nth-child(2) { background: #febc2e; }
     .terminal-dot:nth-child(3) { background: #28c840; }
     .terminal-title { margin-left: 12px; font-size: 12px; color: var(--text-muted); font-weight: 600; }
-    .terminal-body { padding: 28px; font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 14px; line-height: 1.8; color: var(--text-secondary); }
+    .terminal-body { padding: 28px; font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 14px; line-height: 1.8; color: var(--text-secondary); min-height: 320px; max-height: 420px; overflow-y: auto; }
     .terminal-body .prompt { color: var(--accent-bright); }
     .terminal-body .cmd { color: var(--text-primary); }
     .terminal-body .output { color: var(--text-secondary); opacity: 0.7; }
@@ -331,13 +341,13 @@
     <div class="hero-date-badge">15 Julho 2026 &middot; 18h&ndash;20h &middot; Presencial</div>
 
     <h1>
-      O teu processo comercial<br>
-      ainda depende de ti para<br>
-      <em>cada e-mail, cada update,<br>cada follow-up?</em>
+      <span class="hero-rotate-wrapper">
+        <span class="hero-rotate-line" id="heroRotate">E se nunca mais precisasses de abrir o CRM?</span>
+      </span>
     </h1>
 
     <p class="hero-sub">
-      Já usas IA. Já percebes o poder dos agentes. Mas continuas a ser tu a abrir o Gmail, a atualizar o Pipedrive, a agendar follow-ups no Calendar. <strong>Nesta formação configuras o agente que faz tudo isso por ti</strong> &mdash; e sais com ele a operar no teu pipeline real.
+      Já usas IA. Já percebes o poder dos agentes. Mas continuas a ser tu a cola entre o Gmail, o CRM, o Calendar e o WhatsApp. <strong>Nesta formação configuras um agente que assume essa operação por ti</strong> &mdash; e sais com ele a funcionar no teu pipeline real.
     </p>
 
     <div class="hero-icp">
@@ -383,7 +393,7 @@
       <div class="paradigm-col paradigm-old">
         <div class="paradigm-label">Como trabalhas hoje</div>
         <h3>Tu és a cola entre<br>4 ferramentas.</h3>
-        <p>Abres o Gmail para ver e-mails. Saltas para o Pipedrive para atualizar o deal. Voltas ao Calendar para agendar o follow-up. Verificas o WhatsApp para contexto. Repetes isto dezenas de vezes por dia.</p>
+        <p>Abres o Gmail para ver e-mails. Saltas para o CRM para atualizar o deal. Voltas ao Calendar para agendar o follow-up. Verificas o WhatsApp para contexto. Repetes isto dezenas de vezes por dia.</p>
         <ul class="paradigm-list">
           <li><span class="icon">&times;</span> Tu escreves cada e-mail de follow-up</li>
           <li><span class="icon">&times;</span> Tu atualizas cada deal no CRM</li>
@@ -396,10 +406,10 @@
       <div class="paradigm-col paradigm-new">
         <div class="paradigm-label">Com o Sales OPS Agent</div>
         <h3>O agente opera.<br>Tu decides e vendes.</h3>
-        <p>Dizes ao agente o que precisas. Ele cruza Gmail, Pipedrive, Calendar e WhatsApp, executa as tarefas e mantém tudo sincronizado. Tu aprovas e focas no cliente.</p>
+        <p>Dizes ao agente o que precisas. Ele cruza Gmail, CRM, Calendar e WhatsApp, executa as tarefas e mantém tudo sincronizado. Tu aprovas e focas no cliente.</p>
         <ul class="paradigm-list">
           <li><span class="icon">&#10003;</span> O agente redige os follow-ups por ti</li>
-          <li><span class="icon">&#10003;</span> O agente atualiza o Pipedrive</li>
+          <li><span class="icon">&#10003;</span> O agente atualiza o CRM</li>
           <li><span class="icon">&#10003;</span> O agente agenda os próximos passos</li>
           <li><span class="icon">&#10003;</span> O agente prepara briefings pré-reunião</li>
           <li><span class="icon">&#10003;</span> Nenhum deal cai no esquecimento</li>
@@ -435,7 +445,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
         </div>
         <div>
-          <h4>Opera o Pipedrive</h4>
+          <h4>Opera o CRM</h4>
           <p>Atualiza deals, regista atividades, deteta oportunidades paradas.</p>
         </div>
       </div>
@@ -463,38 +473,55 @@
         </div>
         <div>
           <h4>Sincroniza tudo automaticamente</h4>
-          <p>Gmail, Pipedrive, Calendar e WhatsApp alinhados. O contexto nunca se perde entre ferramentas.</p>
+          <p>Gmail, CRM, Calendar e WhatsApp alinhados. O contexto nunca se perde entre ferramentas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ DEMO ══ -->
+  <!-- ══ DEMO INTERATIVO ══ -->
   <section class="demo container">
-    <div class="terminal reveal">
+    <div class="reveal">
+      <span class="section-label">Em ação</span>
+      <h2 class="section-title" style="text-align: center; margin: 0 auto;">Experimenta. <em>Clica num cenário.</em></h2>
+    </div>
+
+    <div class="demo-tabs reveal reveal-delay-1">
+      <button class="demo-tab active" data-scenario="0">
+        <span class="demo-tab-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        Deals parados
+      </button>
+      <button class="demo-tab" data-scenario="1">
+        <span class="demo-tab-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </span>
+        Follow-ups
+      </button>
+      <button class="demo-tab" data-scenario="2">
+        <span class="demo-tab-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </span>
+        Briefing reunião
+      </button>
+      <button class="demo-tab" data-scenario="3">
+        <span class="demo-tab-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        Resumo semanal
+      </button>
+    </div>
+
+    <div class="terminal reveal reveal-delay-1">
       <div class="terminal-bar">
         <div class="terminal-dot"></div>
         <div class="terminal-dot"></div>
         <div class="terminal-dot"></div>
         <span class="terminal-title">Sales OPS Agent &mdash; Claude Code CLI</span>
       </div>
-      <div class="terminal-body">
-        <div class="terminal-line"><span class="prompt">tu &gt;</span> <span class="cmd">Que deals preciso de acompanhar esta semana?</span></div>
-        <div class="terminal-gap"></div>
-        <div class="terminal-line"><span class="output">Cruzei Pipedrive, Gmail e Calendar. <span class="highlight">3 deals precisam de atenção</span>:</span></div>
-        <div class="terminal-gap"></div>
-        <div class="terminal-line"><span class="output">  1. <span class="highlight">Empresa ABC</span> &mdash; proposta enviada h&aacute; 8 dias, sem resposta no Gmail.</span></div>
-        <div class="terminal-line"><span class="output">     Sugiro: follow-up com caso de uso do setor.</span></div>
-        <div class="terminal-line"><span class="output">  2. <span class="highlight">Empresa XYZ</span> &mdash; reuni&atilde;o amanh&atilde; &agrave;s 10h.</span></div>
-        <div class="terminal-line"><span class="output">     Briefing pronto: hist&oacute;rico de 6 emails + &uacute;ltima conversa WhatsApp.</span></div>
-        <div class="terminal-line"><span class="output">  3. <span class="highlight">Empresa DEF</span> &mdash; parado h&aacute; 14 dias no Pipedrive.</span></div>
-        <div class="terminal-line"><span class="output">     Sugiro: enviar ROI calculator personalizado.</span></div>
-        <div class="terminal-gap"></div>
-        <div class="terminal-line"><span class="prompt">tu &gt;</span> <span class="cmd">Redige os 3 follow-ups e agenda os próximos passos.</span></div>
-        <div class="terminal-gap"></div>
-        <div class="terminal-line"><span class="output"><span class="success">&#10003;</span> 3 drafts criados no Gmail (a aguardar aprova&ccedil;&atilde;o).</span></div>
-        <div class="terminal-line"><span class="output"><span class="success">&#10003;</span> Pipedrive atualizado (3 deals, novas atividades).</span></div>
-        <div class="terminal-line"><span class="output"><span class="success">&#10003;</span> 3 follow-ups agendados no Calendar.</span></div>
+      <div class="terminal-body" id="terminalBody">
+        <!-- Content injected by JS -->
       </div>
     </div>
   </section>
@@ -520,7 +547,7 @@
         <div class="program-time">18h00</div>
         <div class="program-content">
           <h4>Recebes o repo e ligas as tuas ferramentas</h4>
-          <p>Clonas o Sales OPS Agent e configuras Gmail, Calendar e Pipedrive no teu pipeline real.</p>
+          <p>Clonas o Sales OPS Agent e configuras Gmail, Calendar e CRM no teu pipeline real.</p>
         </div>
       </div>
 
@@ -559,7 +586,7 @@
 
     <div class="proof-grid reveal reveal-delay-1">
       <div class="testimonial">
-        <p class="testimonial-quote">Deixei de abrir o Pipedrive. O agente atualiza tudo por mim. Recuperei mais de 1 hora por dia que agora passo ao telefone com clientes.</p>
+        <p class="testimonial-quote">Deixei de abrir o CRM. O agente atualiza tudo por mim. Recuperei mais de 1 hora por dia que agora passo ao telefone com clientes.</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar">PM</div>
           <div>
@@ -641,7 +668,7 @@
           <li><span class="check">&#10003;</span> Configuração guiada no teu pipeline</li>
           <li class="pricing-divider"></li>
           <li><span class="check" style="color: var(--accent-bright);">+</span> <strong>Repositório completo</strong> do Sales OPS Agent</li>
-          <li><span class="check" style="color: var(--accent-bright);">+</span> <strong>Todas as integrações</strong>: Gmail, Calendar, Pipedrive, WhatsApp</li>
+          <li><span class="check" style="color: var(--accent-bright);">+</span> <strong>Todas as integrações</strong>: Gmail, Calendar, CRM, WhatsApp</li>
           <li><span class="check" style="color: var(--accent-bright);">+</span> <strong>Prompts de produção</strong> otimizados e testados</li>
           <li><span class="check" style="color: var(--accent-bright);">+</span> <strong>Licença comercial</strong> ilimitada</li>
         </ul>
@@ -790,8 +817,8 @@
         <div class="faq-answer"><div class="faq-answer-inner">O agente está otimizado para Gmail via Google MCP. Se o teu e-mail principal é Outlook, esta formação não é para ti neste momento.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">E se não uso Pipedrive?<span class="faq-icon">+</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner">O agente funciona com Pipedrive ou Excel/Google Sheets. Se usas outro CRM, podes exportar os dados e trabalhar a partir daí. No workshop mostramos ambas as opções.</div></div>
+        <button class="faq-question" aria-expanded="false">E se não uso CRM?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">O agente funciona com CRM ou Excel/Google Sheets. Se usas outro CRM, podes exportar os dados e trabalhar a partir daí. No workshop mostramos ambas as opções.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">Quanto custa o Claude Code por mês?<span class="faq-icon">+</span></button>
@@ -807,7 +834,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">O que inclui o bilhete de 99&euro;?<span class="faq-icon">+</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner">A formação presencial (2h) mais o repositório completo do Sales OPS Agent: código-fonte, todas as integrações (Gmail, Calendar, Pipedrive, WhatsApp), prompts de produção otimizados e licença comercial ilimitada. É o projeto em produção no Grupo JOYN.</div></div>
+        <div class="faq-answer"><div class="faq-answer-inner">A formação presencial (2h) mais o repositório completo do Sales OPS Agent: código-fonte, todas as integrações (Gmail, Calendar, CRM, WhatsApp), prompts de produção otimizados e licença comercial ilimitada. É o projeto em produção no Grupo JOYN.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">Posso adicionar a sessão de setup (49&euro;) depois?<span class="faq-icon">+</span></button>
@@ -836,11 +863,13 @@
   </footer>
 
   <script>
+    // ── Scroll reveal ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+    // ── FAQ accordion ──
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.parentElement;
@@ -851,6 +880,7 @@
       });
     });
 
+    // ── Smooth scroll ──
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -858,6 +888,177 @@
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    // ── Hero headline rotation ──
+    const heroLines = [
+      'E se nunca mais precisasses de abrir o CRM?',
+      'E se o teu pipeline se atualizasse sozinho?',
+      'E se cada follow-up fosse enviado sem tocares no Gmail?',
+      'E se chegasses a cada reuniao com briefing completo?',
+      'E se tivesses um gestor operacional que nunca se esquece de nada?'
+    ];
+    let heroIdx = 0;
+    const heroEl = document.getElementById('heroRotate');
+    setInterval(() => {
+      heroEl.style.opacity = '0';
+      setTimeout(() => {
+        heroIdx = (heroIdx + 1) % heroLines.length;
+        heroEl.textContent = heroLines[heroIdx];
+        heroEl.style.opacity = '1';
+      }, 500);
+    }, 4000);
+
+    // ── Interactive terminal ──
+    const scenarios = [
+      {
+        lines: [
+          { type: 'prompt', text: 'tu > ', cmd: 'Que deals preciso de acompanhar esta semana?' },
+          { type: 'gap' },
+          { type: 'output', text: 'Cruzei o CRM com o Gmail e Calendar. <span class="highlight">3 deals precisam de atencao</span>:' },
+          { type: 'gap' },
+          { type: 'output', text: '  1. <span class="highlight">Empresa ABC</span> \u2014 proposta enviada ha 8 dias, sem resposta no Gmail.' },
+          { type: 'output', text: '     Sugiro: follow-up com caso de uso do setor.' },
+          { type: 'output', text: '  2. <span class="highlight">Empresa XYZ</span> \u2014 reuniao amanha as 10h.' },
+          { type: 'output', text: '     Briefing pronto: historico de 6 emails + ultima conversa WhatsApp.' },
+          { type: 'output', text: '  3. <span class="highlight">Empresa DEF</span> \u2014 parado ha 14 dias no CRM.' },
+          { type: 'output', text: '     Sugiro: enviar ROI calculator personalizado.' },
+          { type: 'gap' },
+          { type: 'prompt', text: 'tu > ', cmd: 'Trata dos 3. Redige e agenda.' },
+          { type: 'gap' },
+          { type: 'success', text: '\u2713 3 drafts criados no Gmail (a aguardar aprovacao).' },
+          { type: 'success', text: '\u2713 CRM atualizado (3 deals, novas atividades).' },
+          { type: 'success', text: '\u2713 3 follow-ups agendados no Calendar.' },
+        ]
+      },
+      {
+        lines: [
+          { type: 'prompt', text: 'tu > ', cmd: 'Quem nao recebeu follow-up nos ultimos 5 dias?' },
+          { type: 'gap' },
+          { type: 'output', text: 'Analisei 47 deals ativos. <span class="highlight">8 prospects sem follow-up</span> ha mais de 5 dias:' },
+          { type: 'gap' },
+          { type: 'output', text: '  \u26a0 4 em fase de proposta (prioridade alta)' },
+          { type: 'output', text: '  \u26a0 3 em fase de qualificacao' },
+          { type: 'output', text: '  \u26a0 1 em negociacao (14 dias sem contacto!)' },
+          { type: 'gap' },
+          { type: 'prompt', text: 'tu > ', cmd: 'Redige follow-ups para os 4 de proposta. Tom profissional, urgente mas nao agressivo.' },
+          { type: 'gap' },
+          { type: 'success', text: '\u2713 4 emails redigidos com contexto do deal e historico.' },
+          { type: 'success', text: '\u2713 Tom adaptado por setor: tech, financeiro, retalho, saude.' },
+          { type: 'success', text: '\u2713 CRM atualizado com atividade "follow-up enviado".' },
+          { type: 'output', text: '' },
+          { type: 'output', text: 'Queres rever os drafts antes de enviar?' },
+        ]
+      },
+      {
+        lines: [
+          { type: 'prompt', text: 'tu > ', cmd: 'Prepara-me para a reuniao das 14h com a TechVerde.' },
+          { type: 'gap' },
+          { type: 'output', text: '<span class="highlight">Briefing: TechVerde Lda.</span>' },
+          { type: 'output', text: '' },
+          { type: 'output', text: '  Deal: Licenciamento anual \u2014 12.500\u20ac \u2014 fase Negociacao' },
+          { type: 'output', text: '  Contacto: Maria Santos (CTO) \u2014 decisora tecnica' },
+          { type: 'output', text: '  Ultimo contacto: email 3 Jun + WhatsApp 5 Jun' },
+          { type: 'output', text: '  Sentimento: positivo (pediu caso de uso pharma)' },
+          { type: 'gap' },
+          { type: 'output', text: '  <span class="highlight">Pontos de atencao:</span>' },
+          { type: 'output', text: '  \u2022 Mencionou restricao orcamental no Q3 (WhatsApp 5 Jun)' },
+          { type: 'output', text: '  \u2022 Concorrente X apresentou proposta na semana passada (email 2 Jun)' },
+          { type: 'output', text: '  \u2022 Caso pharma enviado mas sem feedback' },
+          { type: 'gap' },
+          { type: 'output', text: '  <span class="highlight">Sugestao:</span> Abrir com ROI a 90 dias para antecipar objecao de orcamento.' },
+        ]
+      },
+      {
+        lines: [
+          { type: 'prompt', text: 'tu > ', cmd: 'Da-me o resumo da semana.' },
+          { type: 'gap' },
+          { type: 'output', text: '<span class="highlight">Resumo semanal \u2014 24-28 Jun</span>' },
+          { type: 'gap' },
+          { type: 'output', text: '  Pipeline: 52 deals ativos (+3 novos, -2 fechados, -1 perdido)' },
+          { type: 'output', text: '  Valor total: 187.400\u20ac (era 164.200\u20ac \u2014 <span class="highlight">+14%</span>)' },
+          { type: 'gap' },
+          { type: 'success', text: '\u2713 23 follow-ups enviados (vs. 11 na semana anterior)' },
+          { type: 'success', text: '\u2713 8 reunioes realizadas, 3 propostas enviadas' },
+          { type: 'success', text: '\u2713 2 deals fechados: Empresa ABC (8.200\u20ac) + Empresa QRS (4.100\u20ac)' },
+          { type: 'gap' },
+          { type: 'output', text: '  <span class="highlight">Proxima semana:</span>' },
+          { type: 'output', text: '  \u2022 5 reunioes agendadas (briefings preparados)' },
+          { type: 'output', text: '  \u2022 7 follow-ups pendentes (3 urgentes)' },
+          { type: 'output', text: '  \u2022 1 proposta a expirar sexta-feira' },
+        ]
+      }
+    ];
+
+    let currentScenario = 0;
+    let typeTimer = null;
+
+    function renderScenario(idx) {
+      const body = document.getElementById('terminalBody');
+      body.innerHTML = '';
+      clearTimeout(typeTimer);
+
+      const lines = scenarios[idx].lines;
+      let i = 0;
+
+      function addLine() {
+        if (i >= lines.length) return;
+        const line = lines[i];
+        const div = document.createElement('div');
+
+        if (line.type === 'gap') {
+          div.className = 'terminal-gap';
+          body.appendChild(div);
+          i++;
+          typeTimer = setTimeout(addLine, 80);
+        } else if (line.type === 'prompt') {
+          div.className = 'terminal-line';
+          div.innerHTML = '<span class="prompt">' + line.text + '</span><span class="cmd"></span>';
+          body.appendChild(div);
+          const cmdEl = div.querySelector('.cmd');
+          let c = 0;
+          function typeChar() {
+            if (c < line.cmd.length) {
+              cmdEl.textContent += line.cmd[c];
+              c++;
+              typeTimer = setTimeout(typeChar, 25);
+            } else {
+              i++;
+              typeTimer = setTimeout(addLine, 400);
+            }
+          }
+          typeChar();
+        } else {
+          div.className = 'terminal-line';
+          const cls = line.type === 'success' ? 'success' : 'output';
+          div.innerHTML = '<span class="' + cls + '">' + line.text + '</span>';
+          div.style.opacity = '0';
+          div.style.transform = 'translateY(4px)';
+          body.appendChild(div);
+          requestAnimationFrame(() => {
+            div.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            div.style.opacity = '1';
+            div.style.transform = 'translateY(0)';
+          });
+          i++;
+          typeTimer = setTimeout(addLine, 60);
+        }
+        body.scrollTop = body.scrollHeight;
+      }
+      addLine();
+    }
+
+    // Tab clicks
+    document.querySelectorAll('.demo-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentScenario = parseInt(tab.dataset.scenario);
+        renderScenario(currentScenario);
+      });
+    });
+
+    // Initial render
+    renderScenario(0);
   </script>
 
 </body>
